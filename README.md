@@ -6,7 +6,7 @@ Go to `input.json` and specify all the fields:
 
 `output_dir_path` := The directory to dump all the functions into
 
-`mcfunction_path` := The mcfunction path corresponding to the output directory, in the form of `namespace:dir/path/in/datapack/`. Note it must contain a slash in the end.
+`mcfunction_path` := The mcfunction path corresponding to the output directory, in the form of "namespace:dir/path/in/datapack/". Note it must contain a slash in the end.
 
 `obj_to_match` := The player selector and the objective score you are using as input, in the form of `@s\[selectors\] obj_score_name`
 
