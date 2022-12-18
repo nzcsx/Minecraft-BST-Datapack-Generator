@@ -1,1 +1,1 @@
-# Minecraft-BST-Datapack-Generator
+# Minecraft-BST-Functions-Generator
