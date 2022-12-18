@@ -8,7 +8,7 @@ Go to `input.json` and specify all the fields:
 
 `mcfunction_path` := The mcfunction path corresponding to the output directory, in the form of "namespace:dir/path/in/datapack/". Note it must contain a slash in the end.
 
-`obj_to_match` := The player selector and the objective score you are using as input, in the form of `@s\[selectors\] obj_score_name`
+`obj_to_match` := The player selector and the objective score you are using as input, in the form of "@s\[selectors\] obj_score_name"
 
 `data` := a bunch of key-commands pairs. The keys are the values of input objective score you are trying to match. The commands are lists of commands you want to run upon successful key match. 
 
