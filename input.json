@@ -1,8 +1,8 @@
 {
 	"config" : 
 	{
-		"output_dir_path" : "test",
-		"mcfunction_path" :"test_space:classes/test/",
+		"output_dir_path" : "test_dir",
+		"mcfunction_path" :"test_space:classes/path/in/datapack/test_dir/",
 		"obj_to_match" : "@s test_score"
 	},
 	
