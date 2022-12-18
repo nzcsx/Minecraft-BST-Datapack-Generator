@@ -85,6 +85,8 @@ def flatten_level_list(level_list: list[list[any]]):
 
 
 # iterate and output minecraft file recursively
+# input: node
+# output: files generated
 def output_file(node: Node):
     if not node:
         return
