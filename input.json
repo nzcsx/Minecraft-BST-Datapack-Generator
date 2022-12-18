@@ -1,0 +1,39 @@
+{
+	"config" : 
+	{
+		"output_dir_path" : "test",
+		"mcfunction_path" :"test_space:classes/test/",
+		"obj_to_match" : "@s test_score"
+	},
+	
+	"data" :
+	{
+		"1" : [
+			"say 1 hi",
+			"say 2 hi"],
+		"2" : [
+			"say 3 hi",
+			"say 4 hi"],
+		"3" : [
+			"say 3 hi",
+			"say 4 hi"],
+		"4" : [
+			"say 3 hi",
+			"say 4 hi"],
+		"5" : [
+			"say 3 hi",
+			"say 4 hi"],
+		"6" : [
+			"say 3 hi",
+			"say 4 hi"],
+		"7" : [
+			"say 3 hi",
+			"say 4 hi"],
+		"8" : [
+			"say 3 hi",
+			"say 4 hi"],
+		"9" : [
+			"say 3 hi",
+			"say 4 hi"]
+	}
+}
