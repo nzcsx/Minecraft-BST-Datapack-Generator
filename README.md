@@ -20,6 +20,8 @@ After installing, run the script by using `python bst-bootstrap.py` in powershel
 ## Understanding the Output
 The script will produce two outputs: a directory containing all the functions, a "tree_graph.txt" file printing the structure of the tree.
 
-The directory along with the functions are not immediate usable, as this is not a complete datapack. Instead, you should put these mcfunction files into your datapack, at the position you specified in "mcfunction_path". When trying to match the score in game, run the function corresponding to the root node. (To find out which file that is, keep reading below.) All the files are named "[key].mcfunction" or "[key]_run.mcfunction". The later one is simply a helper function in case there are multiple commands paired with a key. 
+The directory along with the functions are not immediately usable, as this is not a complete datapack. Instead, you should put these mcfunction files into your datapack, at the position you specified in "mcfunction_path". When trying to match the score in game, run the function corresponding to the root node. (To find out which file that is, keep reading below.) 
 
-The structure of the tree is recorded in tree_graph.txt. The root node is the node at very top. In this implementation, when a node has less than or equal to four descendents, it will become a leaf node, and simply match all the descendents in its own file. 
+All the mcfunction files are named "\[key\].mcfunction" or "\[key\]\_run.mcfunction". The later one is a helper function in case there are multiple commands paired with a key. 
+
+"tree_graph.txt" records the structure of the tree. The root node is the node at very top. In this implementation, when a node has less than or equal to four descendents, it will become a leaf node, and simply match all the descendents in its own file. Therefore the structure printed here is not completely accurate. (However, you can just easily re-imagine it in your mind.)
