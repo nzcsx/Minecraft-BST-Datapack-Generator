@@ -1,7 +1,7 @@
 # Minecraft-BST-Functions-Generator
 
-## Usage
-### Preparing Input
+# Usage
+## Preparing Input
 Go to `input.json` and specify all the fields:
 
 `output_dir_path` := The directory to dump all the functions into
@@ -12,10 +12,10 @@ Go to `input.json` and specify all the fields:
 
 `data` := a bunch of key-commands pairs. The keys are the values of input objective score you are trying to match. The commands are lists of commands you want to run upon successful key match. 
 
-### Run The Script
+## Run The Script
 Before running the script you must install `drawtree` package first using `pip3 install drawtree` in powershell.
 
 After installing, run the script by using `python bst-bootstrap.py` in powershell.
 
-### Understanding the Output
+## Understanding the Output
 The script will produce two outputs: a directory containing all the functions, a `tree_graph.txt` file printing the structure of the tree.
