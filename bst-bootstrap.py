@@ -215,9 +215,8 @@ with open('tree_graph.txt', 'w+') as f:
         draw_level_order(list_string)
 
 # output minecraft functions
-if os.path.isdir(output_dir_path):
-    shutil.rmtree(output_dir_path)
-os.mkdir(output_dir_path)
+if not os.path.isdir(output_dir_path):
+    os.mkdir(output_dir_path)
 os.chdir(output_dir_path)
 
 output_file(root_node)
