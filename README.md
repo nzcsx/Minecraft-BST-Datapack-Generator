@@ -15,7 +15,7 @@ Go to `input.json` and specify all the fields:
 ## Run The Script
 Before running the script you must first install `drawtree` package using `pip3 install drawtree` in powershell.
 
-After installing the package, run the script by using `python bst-bootstrap.py` in powershell.
+After installing the package, run the script by using `python3 bst-bootstrap.py` in powershell.
 
 ## Understanding the Output
 The script will produce two outputs: a directory containing all the functions, a "tree_graph.txt" file printing the structure of the tree.
