@@ -92,7 +92,7 @@ def output_file(node: Node):
         return
     
     # match self
-    commands_to_run = input_dict[node.v]
+    commands_to_run = input_dict[str(node.v)]
     file_content = ''
     
     # # only one command to run
@@ -106,7 +106,7 @@ def output_file(node: Node):
     # # multiple commands, use a separate file
     else:
         file_to_run = str(node.v) + '_run.mcfunction'
-        cmd_to_run = 'function ' + mcfunction_path + file_to_run
+        cmd_to_run = 'function ' + mcfunction_path + str(node.v) + '_run'
         
         file_content += """execute if score {} matches {} run {}\n""" \
             .format(  obj_to_match, \
@@ -126,11 +126,11 @@ def output_file(node: Node):
         # # # left
         if node.l:
             file_to_run = str(node.l.v) + '.mcfunction'
-            cmd_to_run = 'function ' + mcfunction_path + file_to_run
+            cmd_to_run = 'function ' + mcfunction_path + str(node.l.v)
             
             file_content += """execute if score {} matches ..{} run {}\n""" \
                 .format(  obj_to_match, \
-                          int(node.v) - 1,
+                          node.v - 1,
                           cmd_to_run)
             
             output_file(node.l)
@@ -138,11 +138,11 @@ def output_file(node: Node):
         # # # right
         if node.l:
             file_to_run = str(node.r.v) + '.mcfunction'
-            cmd_to_run = 'function ' + mcfunction_path + file_to_run
+            cmd_to_run = 'function ' + mcfunction_path + str(node.r.v)
             
             file_content += """execute if score {} matches {}.. run {}\n""" \
                 .format(  obj_to_match, \
-                          int(node.v) + 1,
+                          node.v + 1,
                           cmd_to_run)
             
             output_file(node.r)
@@ -150,7 +150,7 @@ def output_file(node: Node):
     # # leaf node
     else:
         for child in node.c:
-            commands_to_run = input_dict[child]
+            commands_to_run = input_dict[str(child)]
             
             # # only one command to run
             if len(commands_to_run) < 2:
@@ -163,7 +163,7 @@ def output_file(node: Node):
             # # multiple commands, use a separate file
             else:
                 file_to_run = str(child) + '_run.mcfunction'
-                cmd_to_run = 'function ' + mcfunction_path + file_to_run
+                cmd_to_run = 'function ' + mcfunction_path + str(child) + '_run'
                 
                 file_content += """execute if score {} matches {} run {}\n""" \
                     .format(  obj_to_match, \
@@ -200,15 +200,23 @@ global obj_to_match
 input_config = input_file["config"]
 output_dir_path = input_config["output_dir_path"]
 mcfunction_path = input_config["mcfunction_path"]
+if mcfunction_path[-1] != '/':
+    mcfunction_path += '/'
 obj_to_match = input_config["obj_to_match"]
 
 # sort keys
-keys = list(input_dict.keys())
-keys.sort()
+keys_str = list(input_dict.keys())
+keys_int = list(map(int, keys_str))
+keys_int.sort()
 
 # build tree and level list
 level_list = []
-root_node = build(keys, 0, level_list)
+root_node = build(keys_int, 0, level_list)
+
+# change dir
+if not os.path.isdir(output_dir_path):
+    os.mkdir(output_dir_path)
+os.chdir(output_dir_path)
 
 # draw tree
 flattened_list, list_string = flatten_level_list(level_list)
@@ -217,8 +225,4 @@ with open('tree_graph.txt', 'w+') as f:
         draw_level_order(list_string)
 
 # output minecraft functions
-if not os.path.isdir(output_dir_path):
-    os.mkdir(output_dir_path)
-os.chdir(output_dir_path)
-
 output_file(root_node)
